@@ -3,9 +3,10 @@
 [BEGIN_COT_EXT]
 Code=bbcode
 Name=BBcode Parser
-Description=Parses bbcodes and smilies
-Version=0.7.0.2
-Date=2010-sep-24
+Category=parser
+Description=Adds BBcode parser support to the contents
+Version=0.9.0
+Date=2011-06-30
 Author=Cotonti Team
 Copyright=Copyright (c) Cotonti Team 2008-2011
 Notes=BSD License
@@ -19,6 +20,7 @@ Recommends_plugins=markitup
 
 [BEGIN_COT_EXT_CONFIG]
 smilies=01:radio::1:Enable smilies
+editor=02:callback:cot_get_editors():markitup:
 [END_COT_EXT_CONFIG]
 ==================== */
 
