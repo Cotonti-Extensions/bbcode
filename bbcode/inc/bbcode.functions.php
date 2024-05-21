@@ -11,11 +11,9 @@ defined('COT_CODE') or die('Wrong URL');
 
 Cot::$db->registerTable('bbcode');
 
-if (!isset($GLOBALS['bbcode_loaded']))
-{
+if (!isset($GLOBALS['bbcode_loaded'])) {
 	cot_bbcode_load();
-	if (Cot::$cfg['plugin']['bbcode']['smilies'])
-	{
+	if (Cot::$cfg['plugin']['bbcode']['smilies']) {
 		cot_smilies_load();
 	}
 	$GLOBALS['bbcode_loaded'] = true;
@@ -136,56 +134,46 @@ function cot_bbcode_update($id, $enabled, $name, $mode, $pattern, $replacement, 
  * Loads bbcodes from database if they havent been already loaded.
  *
  * @global $cot_bbcodes
- * @global $db_bbcode
- * @global CotDB $db
  */
 function cot_bbcode_load()
 {
-	global $cache, $db, $db_bbcode, $cot_bbcodes, $cot_bbcode_containers;
-	if (is_array($cot_bbcodes))
-	{
+	global $cache, $cot_bbcodes, $cot_bbcode_containers;
+	if (is_array($cot_bbcodes)) {
 		// Loaded from cache, exit
 		return;
 	}
-	$cot_bbcodes = array();
+	$cot_bbcodes = [];
 	$cot_bbcode_containers = ''; // required for auto-close
-	$bbc_cntr = array();
+	$bbc_cntr = [];
 	$i = 0;
 	$j = 0;
-	$res = $db->query("SELECT * FROM $db_bbcode WHERE bbc_enabled = 1 ORDER BY bbc_priority");
-	while ($row = $res->fetch())
-	{
-		if ($row['bbc_postrender'] == 1)
-		{
-			foreach ($row as $key => $val)
-			{
+	$res = Cot::$db->query('SELECT * FROM ' . Cot::$db->bbcode . ' WHERE bbc_enabled = 1 ORDER BY bbc_priority');
+	while ($row = $res->fetch()) {
+		if (false && $row['bbc_postrender'] == 1) {
+            // @todo $cot_bbcodes_post is not using any more
+			foreach ($row as $key => $val) {
 				$cot_bbcodes_post[$j][str_replace('bbc_', '', $key)] = $val;
 			}
 			$j++;
-		}
-		else
-		{
-			foreach ($row as $key => $val)
-			{
+		} else {
+			foreach ($row as $key => $val) {
 				$cot_bbcodes[$i][str_replace('bbc_', '', $key)] = $val;
 			}
 			$i++;
 		}
-		if ($row['bbc_container'] == 1 && !isset($bbc_cntr[$row['bbc_name']]))
-		{
+		if ($row['bbc_container'] == 1 && !isset($bbc_cntr[$row['bbc_name']])) {
 			$cot_bbcode_containers .= $row['bbc_name'].'|';
 			$bbc_cntr[$row['bbc_name']] = 1;
 		}
 	}
 	$res->closeCursor();
-	if (!empty($cot_bbcode_containers))
-	{
+	if (!empty($cot_bbcode_containers)) {
 		$cot_bbcode_containers = mb_substr($cot_bbcode_containers, 0, -1);
 	}
-	if ($cache)
-	{
-		$cache->db->store('cot_bbcodes', $cot_bbcodes, 'system');
-		$cache->db->store('cot_bbcode_containers', $cot_bbcode_containers, 'system');
+
+	if (Cot::$cache) {
+        Cot::$cache->db->store('cot_bbcodes', $cot_bbcodes, 'system');
+        Cot::$cache->db->store('cot_bbcode_containers', $cot_bbcode_containers, 'system');
 	}
 }
 
@@ -219,7 +207,9 @@ function cot_parse_bbcode($text)
 	$ii = 10000;
 
 	$text = htmlspecialchars($text);
-	Cot::$cfg['plugin']['bbcode']['parse_autourls'] && $text = cot_parse_autourls($text);
+	if (Cot::$cfg['plugin']['bbcode']['parse_autourls']) {
+        $text = cot_parse_autourls($text);
+    }
 
 	$parse_smilies = Cot::$cfg['plugin']['bbcode']['smilies'];
 
@@ -246,7 +236,7 @@ function cot_parse_bbcode($text)
 	}
 
 	// BB auto-close
-	$bbc = array();
+	$bbc = [];
 	if (preg_match_all(
         '#\[(/)?(' . $cot_bbcode_containers . ')(=[^\]]*)?\]#i',
         $text,
@@ -286,26 +276,31 @@ function cot_parse_bbcode($text)
 	}
 
 	// Done, ready to parse bbcodes
-	$cnt = count($cot_bbcodes);
-	for ($i = 0; $i < $cnt; $i++) {
-		$bbcode = $cot_bbcodes[$i];
-		switch ($bbcode['mode']) {
-			case 'str':
-				$text = str_ireplace($bbcode['pattern'], $bbcode['replacement'], $text);
-			break;
+    if (!empty($cot_bbcodes)) {
+        //if ($bbcode['name'] == 'hide') {
+        foreach ($cot_bbcodes as $i => $bbcode) {
+            switch ($bbcode['mode']) {
+                case 'str':
+                    $text = str_ireplace($bbcode['pattern'], $bbcode['replacement'], $text);
+                    break;
 
-			case 'pcre':
-				$text = preg_replace('`' . $bbcode['pattern'] . '`mis', $bbcode['replacement'], $text);
-			break;
+                case 'pcre':
+                    $text = preg_replace('`' . $bbcode['pattern'] . '`mis', $bbcode['replacement'], $text);
+                    break;
 
-			case 'callback':
-                $text = preg_replace_callback('`' . $bbcode['pattern'] . '`mis', function ($input) use ($bbcode) {
-                    global $cfg, $sys, $usr, $L, $theme, $cot_groups;
-                    eval($bbcode['replacement']);
-                }, $text);
-			break;
-		}
-	}
+                case 'callback':
+                    $text = preg_replace_callback(
+                        '`' . $bbcode['pattern'] . '`mis',
+                        function ($input) use ($bbcode) {
+                            global $cfg, $sys, $usr, $L, $R, $theme, $cot_groups;
+                            return eval($bbcode['replacement']);
+                        },
+                        $text
+                    );
+                    break;
+            }
+        }
+    }
 
 	$text = nl2br($text);
 	$text = str_replace("\r", '', $text);
