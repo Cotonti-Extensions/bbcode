@@ -5,7 +5,7 @@ Adds BBCode parser support to the contents.
 
 Authors: Cotonti Team
 
-Plugin page: https://www.cotonti.com/extensions/administration-management/menu-generator
+Plugin page: https://www.cotonti.com/extensions/editor-parser/bbcode
 
 **BBCode** ("Bulletin Board Code") is a lightweight markup language used to format messages in many
 Internet forum software. It was first introduced in 1998. The available "tags" of BBCode are 
