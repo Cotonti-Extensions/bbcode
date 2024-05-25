@@ -33,6 +33,7 @@ Or for pages module: https://domaint.tld/admin.php?m=config&n=edit&o=module&p=pa
 |`[img]https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png[/img]`|`<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png" />`|<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png" />|
 |[spoiler]Text behind the spoiler[/spoiler]|||
 |[hide]Text for authorized users[/hide]|||
+
 and much more...
 
 All available bbcodes you can find in the plugin admin panel https://domaint.tld/admin.php?m=other&p=bbcode. You can also add your own ones.
