@@ -38,7 +38,7 @@ $L['adm_bbcodes_updated'] = 'BB-Code erfolgreich aktualisiert.';
 $L['adm_help_bbcodes'] = <<<HTM
 <ul>
 <li><strong>Name</strong> - BBcode-Name (nur alphanumerische Zeichen und Unterstriche benutzen)</li>
-<li><strong>Modus</strong> - einer der folgenden Parsing-Modi: 'str' (str_replace), 'ereg' (eregi_replace), 'pcre' (preg_replace) und 'callback' (preg_replace_callback)</li>
+<li><strong>Modus</strong> - einer der folgenden Parsing-Modi: 'str' (str_replace), 'pcre' (preg_replace) und 'callback' (preg_replace_callback)</li>
 <li><strong>Muster</strong> - BBcode-Zeichenkette oder vollständiger regulärer Ausdruck</li>
 <li><strong>Ersetzung</strong> - Ersetzungs-Zeichenkette, reguläre Ersetzung oder Callback-Body</li>
 <li><strong>Container</strong> - Ist der Bbcode ein Container (z. B. [bbcode]irgendwas[/bbcode])</li>

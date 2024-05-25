@@ -38,7 +38,7 @@ $L['adm_bbcodes_updated'] = 'bbcode succesvol bijgewerkt';
 $L['adm_help_bbcodes'] = <<<HTM
 <ul>
 <li><strong>Name</strong> - BBcode naam (alleen alfanumeriek en liggend streepje)</li>
-<li><strong>Mode</strong> - Parsing modus, op de volgende: 'str' (str_replace), 'ereg' (eregi_replace), 'pcre' (preg_replace) and 'callback' (preg_replace_callback)</li>
+<li><strong>Mode</strong> - Parsing modus, op de volgende: 'str' (str_replace), 'pcre' (preg_replace) and 'callback' (preg_replace_callback)</li>
 <li><strong>Pattern</strong> - BBcode string voor reguliere expressie</li>
 <li><strong>Replacement</strong> - Vervangende string of reguliere vervanging of callback body</li>
 <li><strong>Container</strong> - Indien bbcode een container is (zoals [bbcode]Voorbeeld hier[/bbcode])</li>

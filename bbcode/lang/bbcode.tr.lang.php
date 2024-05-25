@@ -38,7 +38,7 @@ $L['adm_bbcodes_updated'] = 'BBkodu başarıyla güncellendi.';
 $L['adm_help_bbcodes'] = <<<HTM
 <ul>
 <li><strong>İsim</strong> - BBkod Adı(sadece alfanumerik ve çizgi kullanın)</li>
-<li><strong>Mod</strong> - Ayrıştırma için aşağıdakilerden birini seçin: 'str' (str_replace), 'ereg' (eregi_replace), 'pcre' (preg_replace) ve 'callback' (preg_replace_callback)</li>
+<li><strong>Mod</strong> - Ayrıştırma için aşağıdakilerden birini seçin: 'str' (str_replace), 'pcre' (preg_replace) ve 'callback' (preg_replace_callback)</li>
 <li><strong>Model</strong> - BBkod dizisi veya düzenli ifadeleri</li>
 <li><strong>Değiştirme</strong> - Yedek dizi ya da düzenli dönüştürme</li>
 <li><strong>Etiket</strong> - BBkodu etiket şekli (örneğin [bbkodu]içerik buraya[/bbkodu])</li>

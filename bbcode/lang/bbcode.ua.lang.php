@@ -38,7 +38,7 @@ $L['adm_bbcodes_updated'] = 'BBCode оновлено.';
 $L['adm_help_bbcodes'] = <<<HTM
 <ul>
 <li><strong>Ім\'я</strong> - Назва BBcode (тільки букви латинського алфавіту, цифри і підкреслення)</li>
-<li><strong>Режим</strong> - Режим парсінгу, один з: &laquo;str&raquo; (str_replace), &laquo;ereg&raquo; (eregi_replace), &laquo;pcre&raquo; (preg_replace) або &laquo;callback&raquo; (preg_replace_callback)</li>
+<li><strong>Режим</strong> - Режим парсінгу, один з: &laquo;str&raquo; (str_replace), &laquo;pcre&raquo; (preg_replace) або &laquo;callback&raquo; (preg_replace_callback)</li>
 <li><strong>Шаблон</strong> - Рядок BBCode чи регулярний вираз</li>
 <li><strong>Заміна</strong> - Рядок заміни, регулярна заміна або тіло функції зворотного виклику</li>
 <li><strong>Контейнер</strong> - Чи є BBCode контейнером (наприклад, [bbcode] Якийсь текст [/ bbcode])</li>
