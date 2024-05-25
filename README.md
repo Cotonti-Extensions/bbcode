@@ -25,6 +25,6 @@ Or for pages module: https://domaint.tld/admin.php?m=config&n=edit&o=module&p=pa
 |[b]bolded text[/b]|`<strong>bolded text</strong>`|**bolded text**|
 |[i]italicized text[/i]|`<em>italicized text</em>`|_italicized text_|
 |[u]underlined text[/u]|`<span style="text-decoration: underline;">underlined text</span>`| |
-|[s]strikethrough text[/s]|`<span style="text-decoration: line-through;">strikethrough text</span>`| ~~ strikethrough text ~~ |
+|[s]strikethrough text[/s]|`<span style="text-decoration: line-through;">strikethrough text</span>`| ~~strikethrough text~~ |
 
 more bbcodes you will find in the plugin admin panel https://domaint.tld/admin.php?m=other&p=bbcode
