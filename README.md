@@ -1,6 +1,6 @@
 # BBCode
 
-Plugin for [CMF Cotonti](https://www.cotonti.com). Customizable support for BBCodes and smilies parsing. 
+BBcode Parser plugin for [CMF Cotonti](https://www.cotonti.com). Customizable support for BBCodes and smilies parsing. 
 Adds BBCode parser support to the contents.
 
 Authors: Cotonti Team
@@ -15,5 +15,16 @@ before being translated into HTML
 ## Installation
 - Unpack to your plugins folder
 - Install the plugin in Administration panel
-- Установить редактор по-умолчанию или для форума
-- Опционально установить MarkitUp!
+- Set default markup parser in site settings: https://domaint.tld/admin.php?m=config&n=edit&o=core&p=main
+Or for pages module: https://domaint.tld/admin.php?m=config&n=edit&o=module&p=page
+- Optionally install the [markItUp!](https://github.com/Cotonti-Extensions/markitup) editor with bbcode support
+
+## BBCodes examples
+| BBCode | Example in HTML/CSS | Output |
+|-|-|-|
+|[b]bolded text[/b]|`<strong>bolded text</strong>`|**bolded text**|
+|[i]italicized text[/i]|`<em>italicized text</em>`|_italicized text_|
+|[u]underlined text[/u]|`<span style="text-decoration: underline;">underlined text</span>`| |
+|[s]strikethrough text[/s]|`<span style="text-decoration: line-through;">strikethrough text</span>`| ~~ strikethrough text ~~ |
+
+more bbcodes you will find in the plugin admin panel https://domaint.tld/admin.php?m=other&p=bbcode
