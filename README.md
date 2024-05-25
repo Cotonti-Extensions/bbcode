@@ -16,7 +16,7 @@ before being translated into HTML
 - Unpack to your plugins folder
 - Install the plugin in Administration panel
 - Set default markup parser in site settings: https://domaint.tld/admin.php?m=config&n=edit&o=core&p=main
-Or for pages module: https://domaint.tld/admin.php?m=config&n=edit&o=module&p=page
+or for pages module: https://domaint.tld/admin.php?m=config&n=edit&o=module&p=page
 - Optionally install the [markItUp!](https://github.com/Cotonti-Extensions/markitup) editor with bbcode support
 
 ## BBCodes examples
