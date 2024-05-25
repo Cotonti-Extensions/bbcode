@@ -4,7 +4,7 @@
 Code=bbcode
 Name=BBcode Parser
 Category=editor-parser
-Description=Adds BBcode parser support to the contents
+Description=Adds BBCode parser support to the contents
 Version=1.1.2
 Date=2024-05-21
 Author=Cotonti Team
