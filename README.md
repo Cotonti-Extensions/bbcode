@@ -1,4 +1,4 @@
-# BBCode
+# BBCode parser
 
 BBcode Parser plugin for [CMF Cotonti](https://www.cotonti.com). Customizable support for BBCodes and smilies parsing. 
 Adds BBCode parser support to the contents.
