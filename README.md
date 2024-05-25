@@ -26,5 +26,13 @@ Or for pages module: https://domaint.tld/admin.php?m=config&n=edit&o=module&p=pa
 |[i]italicized text[/i]|`<em>italicized text</em>`|_italicized text_|
 |[u]underlined text[/u]|`<span style="text-decoration: underline;">underlined text</span>`| |
 |[s]strikethrough text[/s]|`<span style="text-decoration: line-through;">strikethrough text</span>`| ~~strikethrough text~~ |
+|[center]center align[/center]|`<div style="text-align:center">center align</div>`||
+|[right]right align[/right]|`<div style="text-align:right">right align</div>`||
+|[justify]justify align[/justify]|`<div style="text-align:justify">justify align</div>`||
+|`[url=https://en.wikipedia.org]English Wikipedia[/url]`|`<a href="https://en.wikipedia.org">English Wikipedia</a>`|[English Wikipedia](https://en.wikipedia.org)|
+|`[img]https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png[/img]`|`<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png" />`|<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png" />|
+|[spoiler]Text behind the spoiler[/spoiler]|||
+|[hide]Text for authorized users[/hide]|||
+and much more...
 
-more bbcodes you will find in the plugin admin panel https://domaint.tld/admin.php?m=other&p=bbcode
+All available bbcodes you can find in the plugin admin panel https://domaint.tld/admin.php?m=other&p=bbcode. You can also add your own ones.
